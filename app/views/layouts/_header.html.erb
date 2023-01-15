@@ -1,0 +1,14 @@
+<header class="app">
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <%= link_to(t('app.title'), root_path, class: "navbar-brand") %>
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <% if user_signed_in? %>
+          <li class="nav-item">
+            <%= link_to("Sign out", destroy_user_session_path, data: { turbo_method: :delete, class: 'nav-link active'}) %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </nav>
+</header>

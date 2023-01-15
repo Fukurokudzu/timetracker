@@ -1,0 +1,10 @@
+<%= form_with url: projects_path, method: :POST do |form| %>
+  <%= form.label :title, "Search for:" %>
+  <%= form.text_field :title %>
+  <%= form.label :desc, "Search for:" %>
+  <%= form.text_field :desc %>
+  <%= form.label :salary_per_hour, "Search for:" %>
+  <%= form.text_field :salary_per_hour %>
+
+  <%= form.submit "Search" %>
+<% end %>

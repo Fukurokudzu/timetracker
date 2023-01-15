@@ -1,0 +1,14 @@
+<%= form_with url: projects_path, class: "row g-3", method: :POST do |form| %>
+  <div class="col-auto">
+    <%= form.text_field :title, class: "form-control", placeholder: t('projects.title') %>
+  </div>
+  <div class="col-auto">
+    <%= form.text_field :desc, class: "form-control", placeholder: t('projects.desc') %>
+  </div>
+  <div class="col-auto">
+    <%= form.text_field :salary_per_hour, class: "form-control", placeholder: t('projects.salary') %>
+  </div>
+  <div class="col-auto">
+    <%= form.submit t('projects.new_pr_btn'), class: "btn btn-primary" %>
+  </div>
+<% end %>

@@ -30,4 +30,41 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  app:
+    title: "Time tracker" 
+
+  register:
+    new_user_title: "Register"
+    email: "Your email"
+    password_min_len: "Your password (%{minimum_password_length} characters minimum)"
+    password: "Your password"
+    password_confirmation: "Your password confirmation"
+    register_btn: "Signup"
+    login_link: "or sign in!"
+
+  login:
+    login_btn: "Login"
+    register_link: "or signup!"
+    new_login: "Login information"
+    remember_me: "Remember me"
+
+  projects:
+    title: "Project title"
+    desc: "Short description"
+    salary: "Salary per hour"
+    new_pr_btn: "Create project"
+
+
+  flash:
+    alert:
+      login: "Email or password are incorrect"
+    notice:
+      login: "Welcome!"
+
+  devise:
+    sessions:
+      user:
+        signed_in: 'Welcome user, you are signed in.'
+      admin:
+        signed_in: 'Hello admin!'
+

@@ -1,0 +1,27 @@
+<%= render('new_form') %>
+
+<% if @projects.empty? %>
+  <%= "TODO: Создайте новый проект" %>
+<% else %>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col"><%= t('projects.title') %></th>
+          <th scope="col"><%= t('projects.desc') %></th>
+          <th scope="col"><%= t('projects.salary') %></th>
+        </tr>
+      </thead>
+      <tbody>
+  <% @projects.each do |project| %>
+        <tr>
+          <th scope="row"><%= project.id %></th>
+          <td><%= project.title %></td>
+          <td><%= project.desc %></td>
+          <td><%= project.salary_per_hour %></td>
+        </tr>
+    <% end%>
+      </tbody>
+    </table>
+  
+<% end %>

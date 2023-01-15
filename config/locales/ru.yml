@@ -1,0 +1,30 @@
+ru:
+  app:
+    title: "Time tracker" 
+  
+  register:
+    new_user_title: "Регистрация"
+    email: "Ваш email"
+    password_min_len: "Ваш пароль (минимум %{minimum_password_length} символов)"
+    password: "Ваш пароль"
+    password_confirmation: "Подтверждение пароля"
+    register_btn: "Зарегистрироваться"
+    login_link: "или войти"
+
+  login:
+    login_btn: "Войти"
+    register_link: "или зарегистрироваться!"
+    new_login: "Войти"
+    remember_me: "Запомнить сессию"
+
+  projects:
+    title: "Название проекта"
+    desc: "Описание"
+    salary: "Стоимость работы в час"
+    new_pr_btn: "Создать проект"
+
+  flash:
+    alert:
+      login: "Электронная почта либо пароль введены не верно"
+    notice:
+      login: "Добро пожаловать"
