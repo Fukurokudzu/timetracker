@@ -7,9 +7,6 @@ Rails.application.routes.draw do
 
   root 'projects#index'
 
-  get 'signup', to: 'users#sign_up'
-  get 'login', to: 'users#sign_in'
-
   resources :users, except: [ :new ]
   resources :projects
 end
