@@ -26,5 +26,13 @@ ru:
   flash:
     alert:
       login: "Электронная почта либо пароль введены не верно"
+      projects:
+        destroy_error: "Неправильный ID проекта"
+        title_empty: "Заполните поле 'Название проекта'"
     notice:
       login: "Добро пожаловать"
+      projects:
+        created: "Проект %{project_title} создан"
+        empty: "Создайте новый проект"
+        
+

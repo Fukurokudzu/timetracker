@@ -11,5 +11,5 @@ Rails.application.routes.draw do
   get 'login', to: 'users#sign_in'
 
   resources :users, except: [ :new ]
-  resources :projects #, only: [ :new, :create, :destroy ]
+  resources :projects
 end

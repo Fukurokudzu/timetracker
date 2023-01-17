@@ -1,0 +1,21 @@
+    <%= turbo_stream_from(project) %>
+<div class="row p-3 border" id="<%= dom_id(project) %>" > 
+  <div class="col">
+    <%= project.id %>
+  </div>
+  <div class="col">
+    <%= link_to project.title, project_path(project) %>
+  </div>
+  <div class="col">
+    <%= project.desc %>
+  </div>
+  <div class="col">
+    <%= project.salary_per_hour %>
+  </div>
+  <div class="col">
+    <%= button_to("remove", project_path(project), method: :delete, class: 'btn btn-secondary align-middle', data: { turbo_method: :delete }) %>
+  </div>
+</div>
+
+
+        

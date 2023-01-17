@@ -58,8 +58,15 @@ en:
   flash:
     alert:
       login: "Email or password are incorrect"
+      projects:
+        destroy_error: "Wrond project ID"
+        title_empty: "Please enter project title"
     notice:
       login: "Welcome!"
+      projects:
+        created: "Project %{project_title} created"
+        empty: "Create new project first"
+        
 
   devise:
     sessions:

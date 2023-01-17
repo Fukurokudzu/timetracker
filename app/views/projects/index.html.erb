@@ -1,27 +1,32 @@
 <%= render('new_form') %>
 
-<% if @projects.empty? %>
-  <%= "TODO: Создайте новый проект" %>
-<% else %>
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col"><%= t('projects.title') %></th>
-          <th scope="col"><%= t('projects.desc') %></th>
-          <th scope="col"><%= t('projects.salary') %></th>
-        </tr>
-      </thead>
-      <tbody>
+<div class="container bg-body-tertiary mt-5">
+  <div class="row bg-dark-subtle"> 
+    <div class="col">
+      #
+    </div>
+    <div class="col">
+      <%= t('projects.title') %>
+    </div>
+    <div class="col">
+      <%= t('projects.desc') %>
+    </div>
+    <div class="col">
+      <%= t('projects.salary') %>
+    </div>
+    <div class="col">
+    </div>
+  </div>
+
+  <div id="projects">
+  <%= turbo_stream_from("projects") %>
   <% @projects.each do |project| %>
-        <tr>
-          <th scope="row"><%= project.id %></th>
-          <td><%= project.title %></td>
-          <td><%= project.desc %></td>
-          <td><%= project.salary_per_hour %></td>
-        </tr>
-    <% end%>
-      </tbody>
-    </table>
-  
+    <%= render(project) %>
+  <% end%>
+  </div>
+
+</div>
+
+<% if @projects.empty? %>
+  <% flash.now[:success] = t('flash.notice.projects.empty') %>
 <% end %>

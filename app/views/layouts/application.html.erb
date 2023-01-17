@@ -16,15 +16,10 @@
 
     <%= render('layouts/header') %>
     <div class="container">
+      <turbo-frame id="flash">
+        <%= render('layouts/flash')%>
+      </turbo-frame>
 
-      <% if notice %>
-        <p class="alert alert-success mt-3"><%= notice %></p>
-      <% end %>
-      <% if alert %>
-        <p class="alert alert-info"><%= alert %></p>
-      <% end %>
-
-    
       <%= yield %>
 
     </div>
