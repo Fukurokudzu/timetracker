@@ -18,8 +18,8 @@
     </div>
   </div>
 
-  <div id="projects">
-  <%= turbo_stream_from("projects") %>
+  <div id="<%= @stream_name %>">
+  <%= turbo_stream_from(@stream_name) %>
   <% @projects.each do |project| %>
     <%= render(project) %>
   <% end%>

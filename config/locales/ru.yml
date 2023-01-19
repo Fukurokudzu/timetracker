@@ -1,6 +1,6 @@
 ru:
   app:
-    title: "Time tracker" 
+    title: "Time tracker"
   
   register:
     new_user_title: "Регистрация"
@@ -18,10 +18,18 @@ ru:
     remember_me: "Запомнить сессию"
 
   projects:
+    project: Проект
+    projects: Проекты    
     title: "Название проекта"
     desc: "Описание"
     salary: "Стоимость работы в час"
     new_pr_btn: "Создать проект"
+
+  tasks:
+    title: "Название задачи"
+    new_task_btn: "Создать задачу"
+    remove_btn: "Удалить"
+
 
   flash:
     alert:
@@ -29,10 +37,26 @@ ru:
       projects:
         destroy_error: "Неправильный ID проекта"
         title_empty: "Заполните поле 'Название проекта'"
+      tasks:
+        title_empty: "Заполните поле 'Название задачи'"
+
     notice:
       login: "Добро пожаловать"
       projects:
         created: "Проект %{project_title} создан"
+        removed: "Проект удалён"
         empty: "Создайте новый проект"
+      tasks:
+        created: "Задача создана"
+        removed: "Задача удалена"
         
+  breadcrumbs:
+    home: Главная
+    project: Проект
 
+  devise:
+    sessions:
+      user:
+        signed_in: 'Добро пожаловать!'
+      admin:
+        signed_in: 'Вы вошли с правами администратора'

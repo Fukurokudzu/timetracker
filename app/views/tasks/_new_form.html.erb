@@ -1,0 +1,8 @@
+<%= form_with url: project_tasks_path, class: "row g-3 mt-3", method: :POST do |form| %>
+  <div class="col-auto">
+    <%= form.text_field :title, class: "form-control", placeholder: t('tasks.title') %>
+  </div>
+  <div class="col-auto">
+    <%= form.submit t('tasks.new_task_btn'), class: "btn btn-primary" %>
+  </div>
+<% end %>

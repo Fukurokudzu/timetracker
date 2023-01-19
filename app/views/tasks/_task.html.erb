@@ -1,0 +1,15 @@
+<%= turbo_stream_from(task) %>
+
+<div class="card" id="<%= dom_id(task) %>">
+  <div class="card-body">
+    <div class="card-header">
+      <%= task.title %>
+    </div>
+    <div class="card-body">
+      <div class="card-text">
+        <%= task.id %>
+        <%= button_to(t('tasks.remove_btn'), project_task_path(task.project_id, task), method: :delete, class: 'btn btn-secondary align-middle float-end', data: { turbo_method: :delete }) %>
+      </div>
+    </div>
+  </div>
+</div>

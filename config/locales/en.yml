@@ -49,10 +49,17 @@ en:
     remember_me: "Remember me"
 
   projects:
+    project: Project
+    projects: Projects  
     title: "Project title"
     desc: "Short description"
     salary: "Salary per hour"
     new_pr_btn: "Create project"
+
+  tasks:
+    title: "Task title"
+    new_task_btn: "New task"
+    remove_btn: "Remove"
 
 
   flash:
@@ -61,12 +68,22 @@ en:
       projects:
         destroy_error: "Wrond project ID"
         title_empty: "Please enter project title"
+      tasks:
+        title_empty: "Please enter task title"
+
     notice:
       login: "Welcome!"
       projects:
         created: "Project %{project_title} created"
+        removed: "Project has been removed"
         empty: "Create new project first"
-        
+      tasks:
+        created: "New task created"
+        removed: "Task removed"
+  
+  breadcrumbs:
+    home: Home
+    project: Project
 
   devise:
     sessions:

@@ -8,5 +8,7 @@ Rails.application.routes.draw do
   root 'projects#index'
 
   resources :users, except: [ :new ]
-  resources :projects
+  resources :projects, except: [ :new ] do
+    resources :tasks
+  end
 end

@@ -1,0 +1,9 @@
+<%= render('bread') %>
+<%= render('new_form') %>
+
+<div class="mt-3" id="<%= @stream_name %>">
+<%= turbo_stream_from(@stream_name) %>
+<% @tasks.each do |task| %>
+  <%= render(task) %>
+<% end%>
+</div>

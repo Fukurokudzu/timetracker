@@ -22,15 +22,12 @@
   <div class="field mb-3">
     <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control", placeholder: t('register.password_confirmation') %>
   </div>
+  <%= render('tz_helper_script') %>
+  <%= f.hidden_field(:time_zone, value: nil) %>
 
   <div class="actions mb-3">
     <%= f.submit t("register.register_btn"), class: :"btn btn-primary" %>
     <%= link_to t('register.login_link'), new_user_session_path %>
-    <%
-=begin%>
- <%= render "devise/shared/links" %> 
-<%
-=end%>
   </div>
 <% end %>
 

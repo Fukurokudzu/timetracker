@@ -1,4 +1,9 @@
 GEM
+  remote: https://rails-assets.org/
+  specs:
+    rails-assets-jsTimezoneDetect (1.0.6)
+
+GEM
   remote: https://rubygems.org/
   specs:
     actioncable (7.0.4)
@@ -238,6 +243,7 @@ DEPENDENCIES
   jbuilder
   puma (~> 5.0)
   rails (~> 7.0.4)
+  rails-assets-jsTimezoneDetect!
   redis (~> 4.0)
   selenium-webdriver
   sprockets-rails

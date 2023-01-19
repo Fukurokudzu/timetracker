@@ -2,6 +2,7 @@ class ProjectsController < ApplicationController
 
   def index
     @projects = current_user.projects.order(created_at: :desc)
+    @stream_name = "projects_" + current_user.id.to_s
   end
 
   def create
@@ -19,6 +20,8 @@ class ProjectsController < ApplicationController
   end
 
   def destroy
+    #TODO: check removal of foreign users tasks
+
     project = Project.find(params[:id])
     if project.user_id = current_user.id
       project.destroy
@@ -30,6 +33,10 @@ class ProjectsController < ApplicationController
   end
 
   def show
+  end
+
+  def stream_name
+    @project.stream_name = "projects_" + current_user.id
   end
 
   private
