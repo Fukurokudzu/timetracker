@@ -36,6 +36,7 @@ ru:
   sprints:
     start: "Новая сессия"
     stop: "Закончить сессию"
+    started_at: "Сессия началась"
 
   flash:
     alert:

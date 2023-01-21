@@ -8,9 +8,14 @@ class SprintsController < ApplicationController
   end
 
   def create
-    sprint = Sprint.new(sprint_params)
-    sprint.start = Time.now
-    sprint.save
+    @sprint = Sprint.new(sprint_params)
+    @sprint.start = Time.now
+
+    respond_to do |format|
+      if @sprint.save
+        format.turbo_stream
+      end
+    end
 
     # TODO: Flash messages for sprint save
     # if @task.save
@@ -24,10 +29,14 @@ class SprintsController < ApplicationController
 
   def update
     # TODO: check sprint access
-    sprint = Sprint.find(params[:id])
-    sprint.end = Time.now
-    sprint.duration = get_duration(sprint)
-    sprint.save
+    @sprint = Sprint.find(params[:id])
+    @sprint.end = Time.now
+    @sprint.duration = get_duration(@sprint)
+    respond_to do |format|
+      if @sprint.save
+        format.turbo_stream
+      end
+    end
   end
 
   private

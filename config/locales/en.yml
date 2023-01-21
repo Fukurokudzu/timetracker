@@ -67,6 +67,7 @@ en:
   sprints:
     start: "New sprint"
     stop: "Finish sprint"
+    started_at: "Sprint started at"
 
   flash:
     alert:

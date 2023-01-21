@@ -1,20 +1,16 @@
 <li class="list-group-item" id="<%= dom_id(sprint)%>">
-  <%= p @user %>
   <% unless sprint.duration.nil? %>
     <%= distance_of_time_in_words(sprint.duration) %>
   <% end %>
 
   <div class="float-end">
-  <%# <%= l(sprint.start.in_time_zone(user.timezone), format: :short) %> &nbsp; %>
+  <%= l(sprint.start.in_time_zone(user.timezone), format: :short) %>&nbsp;
   <% if sprint.end.nil? %>
-    <%= button_to(t('sprints.stop'), project_task_sprint_path(@task.project_id, @task, @sprint.id),
+    <%= button_to(t('sprints.stop'), project_task_sprint_path(task.project_id, task, sprint.id),
     method: :put, class: 'btn btn-secondary align-middle') %>
   <% else %>
     - &nbsp;
-    <%# <%= l(sprint.end.in_time_zone(user.timezone), format: :short) %> %>
+    <%= l(sprint.end.in_time_zone(user.timezone), format: :short) %>
   <% end %>
   </div>
-
 </li>
-
-

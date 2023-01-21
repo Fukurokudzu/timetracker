@@ -1,34 +1,25 @@
 <%= button_to(t('sprints.start'), project_task_sprints_path(task.project_id, task),
 method: :post, class: 'btn btn-primary align-middle') %>
 
-<% sprints_stream_name = "sprints" + task.id.to_s%>
-<div id="<%= sprints_stream_name %>">
-<%= turbo_stream_from(sprints_stream_name) %>
-
-<ul class="list-group mt-3">
-
-<% task.sprints.order(created_at: :desc).each do |sprint, index| %>
-
+<ul class="mt-3 list-group" id="<%=  %>">
+<%= turbo_stream_from(sprints) %>
+<% sprints.each do |sprint| %>
   <%= turbo_stream_from(sprint) %>
-
   <li class="list-group-item" id="<%= dom_id(sprint)%>">
-
     <% unless sprint.duration.nil? %>
       <%= distance_of_time_in_words(sprint.duration) %>
     <% end %>
 
     <div class="float-end">
-    <%= l(sprint.start.in_time_zone(current_user.timezone), format: :short) %> &nbsp;
+    <%= l(sprint.start.in_time_zone(user.timezone), format: :short) %>&nbsp;
     <% if sprint.end.nil? %>
       <%= button_to(t('sprints.stop'), project_task_sprint_path(task.project_id, task, sprint.id),
       method: :put, class: 'btn btn-secondary align-middle') %>
     <% else %>
       - &nbsp;
-      <%= l(sprint.end.in_time_zone(current_user.timezone), format: :short) %>
+      <%= l(sprint.end.in_time_zone(user.timezone), format: :short) %>
     <% end %>
     </div>
-
   </li>
-
 <% end%>
 </ul>

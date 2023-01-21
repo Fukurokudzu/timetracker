@@ -1,0 +1,3 @@
+<%= turbo_stream.replace dom_id(@sprint) do %>
+  <%= render(partial: 'sprints/sprint', locals: { sprint: @sprint, user: @user, task: @task }) %>
+<% end %>
