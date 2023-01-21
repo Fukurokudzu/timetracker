@@ -1,6 +1,6 @@
 class Project < ApplicationRecord
   belongs_to :user
-  has_many :tasks
+  has_many :tasks, dependent: :destroy
 
   after_update_commit { broadcast_replace }
   after_create_commit { broadcast_prepend_to(stream_name, target: stream_name) }

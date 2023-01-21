@@ -1,13 +1,16 @@
 class TasksController < ApplicationController
+  #TODO: - alert for wrong project_id
+
+  before_action :get_user
 
   def index
-    #TODO: - alert for wrong project_id
 
     @projects = current_user.projects
     @current_project = @projects.find(task_params[:project_id])
 
     @tasks = @current_project.tasks.order(created_at: :desc)
     @stream_name = "tasks_" + @current_project.id.to_s
+    
   end
 
   def create
@@ -39,6 +42,10 @@ class TasksController < ApplicationController
   end
 
   private
+
+  def get_user
+    @user = current_user
+  end
 
   def project_id_owner?(project_id)
     current_user.id ==  Project.find(project_id).user_id

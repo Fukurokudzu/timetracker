@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_15_175525) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_21_090216) do
   create_table "projects", force: :cascade do |t|
     t.string "title"
     t.string "desc"
@@ -22,11 +22,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_15_175525) do
     t.index ["user_id"], name: "index_projects_on_user_id"
   end
 
-  create_table "tasks", force: :cascade do |t|
-    t.string "title"
+  create_table "sprints", force: :cascade do |t|
     t.datetime "start"
     t.datetime "end"
-    t.time "duration"
+    t.integer "duration"
+    t.integer "task_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tasks", force: :cascade do |t|
+    t.string "title"
     t.integer "project_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -41,9 +47,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_15_175525) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "timezone"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "sprints", "tasks"
   add_foreign_key "tasks", "projects"
 end

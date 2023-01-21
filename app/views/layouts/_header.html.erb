@@ -9,7 +9,9 @@
           </li>
         <% end %>
       </ul>
-      <div id="tz_header"></div>
+      <% if user_signed_in? %>
+        <div id="tz_header"><%= current_user.timezone %></div>
+      <% end %>
     </div>
   </nav>
 </header>
