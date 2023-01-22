@@ -16,15 +16,6 @@ class SprintsController < ApplicationController
         format.turbo_stream
       end
     end
-
-    # TODO: Flash messages for sprint save
-    # if @task.save
-      # flash.now[:success] = t('flash.notice.tasks.created', task_title: @task.title)
-      # render turbo_stream: turbo_stream.update("flash", partial: "layouts/flash")
-    # else
-      # flash.now[:error] = t('flash.alert.tasks.title_empty', task_title: @task.title)
-      # render turbo_stream: turbo_stream.update("flash", partial: "layouts/flash")
-    # end
   end
 
   def update

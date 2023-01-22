@@ -1,12 +1,12 @@
-<li class="list-group-item bg-primary-subtle" id="<%= dom_id(@sprint)%>">
+<li class="list-group-item bg-primary-subtle" id="<%= dom_id(sprint)%>">
   <div class="float-start">
   
   <%= t('sprints.started_at') %>
 
-  <%= l(@sprint.start.in_time_zone(@user.timezone), format: :short) %>
+  <%= l(sprint.start.in_time_zone(@user.timezone), format: :short) %>
   </div>
   <div class="float-end">
-  <%= button_to(t('sprints.stop'), project_task_sprint_path(@task.project_id, @task, @sprint.id),
+  <%= button_to(t('sprints.stop'), project_task_sprint_path(task.project_id, task, sprint.id),
   method: :put, class: 'btn btn-light align-middle') %>
   </div>
 </li>
