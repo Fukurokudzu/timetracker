@@ -1,6 +1,14 @@
 ru:
   app:
     title: "Time tracker"
+    settings: "Настройки"
+    profile: "Профиль"
+  
+  settings:
+    email: "Почта"
+    timezone: "Часовой пояс"
+    currency: "Валюта"
+    update: "Обновить"
   
   register:
     new_user_title: "Регистрация"
@@ -15,6 +23,7 @@ ru:
     login_btn: "Войти"
     register_link: "или зарегистрироваться!"
     new_login: "Войти"
+    signout: "Выйти"
     remember_me: "Запомнить сессию"
 
   projects:

@@ -1,0 +1,7 @@
+<%= form_for(current_user, html: { method: :put }) do |f| %>
+  <div class="field mb-3 mt-3">
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control col-auto",
+    placeholder: current_user.email %>
+    &nbsp;<%= f.submit t("settings.update"), class: :"mt-3 btn btn-primary" %>
+  </div>
+<% end %>

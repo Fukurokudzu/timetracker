@@ -32,6 +32,15 @@
 en:
   app:
     title: "Time tracker" 
+    settings: "Settings"
+    profile: "Profile"
+  
+  settings:
+    email: "Your email"
+    timezone: "Time zone"
+    currency: "Currency"
+    update: "Update"
+
 
   register:
     new_user_title: "Register"
@@ -46,6 +55,7 @@ en:
     login_btn: "Login"
     register_link: "or signup!"
     new_login: "Login information"
+    signout: "Sign out"
     remember_me: "Remember me"
 
   projects:
