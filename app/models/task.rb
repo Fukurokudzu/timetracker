@@ -8,6 +8,10 @@ class Task < ApplicationRecord
 
   validates :title, presence: true
 
+  def time_spent
+    self.sprints.all.sum(:duration)/60
+  end
+
   def stream_name
     "tasks_" + self.project_id.to_s
   end

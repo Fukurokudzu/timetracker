@@ -69,12 +69,17 @@ en:
     new_pr_btn: "Create project"
     remove_btn: "Remove"
     remove_btn_confirm: "Remove project?"
+    tasks_total: "Tasks in project"
+    minutes_total: "Minutes spent"
+    salary_total: "Salary"
 
   tasks:
     title: "Task title"
     new_task_btn: "New task"
-    remove_btn: "Remove"
+    remove_btn: "Remove task"
     remove_btn_confirm: "Remove task?"
+    time_spent: "Minutes total"
+
 
   sprints:
     start: "New sprint"
@@ -89,6 +94,10 @@ en:
         title_empty: "Please enter project title"
       tasks:
         title_empty: "Please enter task title"
+      settings:
+        email_empty: "'Email' field can't be empty"
+        error: "'Email' field not set or this address is already taken"
+
 
     notice:
       login: "Welcome!"
@@ -110,4 +119,15 @@ en:
         signed_in: 'Welcome user, you are signed in.'
       admin:
         signed_in: 'Hello admin!'
+
+  activerecord:
+    attributes:
+      user:
+        email: "E-mail address"
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: "is required"
 

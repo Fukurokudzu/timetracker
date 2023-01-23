@@ -9,7 +9,7 @@ class ProjectsController < ApplicationController
     @project = Project.new(project_params)
 
     @project.user_id = current_user.id
-    # render json: { success: @project.save, id: @project.id }
+    
     if @project.save
       flash.now[:success] = t('flash.notice.projects.created', project_title: @project.title)
       render turbo_stream: turbo_stream.update("flash", partial: "layouts/flash")

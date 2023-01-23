@@ -37,12 +37,16 @@ ru:
     new_pr_btn: "Создать проект"
     remove_btn: "Удалить"
     remove_btn_confirm: "Удалить проект?"
+    tasks_total: "Всего задач"
+    minutes_total: "Потрачено минут"
+    salary_total: "Стомость"
 
   tasks:
     title: "Название задачи"
     new_task_btn: "Создать задачу"
-    remove_btn: "Удалить"
+    remove_btn: "Удалить задачу"
     remove_btn_confirm: "Удалить задачу?"
+    time_spent: "Всего минут"
 
   sprints:
     start: "Новая сессия"
@@ -57,6 +61,9 @@ ru:
         title_empty: "Заполните поле 'Название проекта'"
       tasks:
         title_empty: "Заполните поле 'Название задачи'"
+      settings:
+        email_empty: "Поле 'Электронная почта' не может быть пустым"
+        error: "Не заполнено поле 'Электронная почта' или этот адрес уже занят"
 
     notice:
       login: "Добро пожаловать"
@@ -78,6 +85,17 @@ ru:
         signed_in: 'Добро пожаловать!'
       admin:
         signed_in: 'Вы вошли с правами администратора'
+  
+  activerecord:
+    attributes:
+      user:
+        email: "E-mail address"
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: "is required"
 
   date:
     abbr_day_names:

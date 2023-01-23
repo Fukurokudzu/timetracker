@@ -33,6 +33,9 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
         format.turbo_stream
+      else
+        flash.now[:error] = t('flash.alert.settings.error')
+        format.turbo_stream { render turbo_stream: turbo_stream.update("flash", partial: "layouts/flash") }
       end
     end
   end
