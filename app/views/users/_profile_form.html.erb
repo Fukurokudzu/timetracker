@@ -2,6 +2,13 @@
   <div class="field mb-3 mt-3">
     <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control col-auto",
     placeholder: current_user.email %>
-    &nbsp;<%= f.submit t("settings.update"), class: :"mt-3 btn btn-primary" %>
   </div>
+  <div class="field mb-3 mt-3">
+    <%= f.time_zone_select(:timezone, nil, { default: "current_user.timezone" }, { class: "form-select" }) %>
+  </div>
+  <div class="field mb-3 mt-3">
+    <%= f.label(t('settings.locale')) %>:
+    <%= f.select(:locale, I18n.available_locales.map(&:to_s), { class: "form-select" }) %>
+  </div>
+  <%= f.submit t("settings.update"), class: :"btn btn-primary" %>
 <% end %>

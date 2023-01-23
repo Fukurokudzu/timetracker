@@ -7,8 +7,10 @@ ru:
   settings:
     email: "Почта"
     timezone: "Часовой пояс"
-    currency: "Валюта"
+    currency: "Валюта по умолчанию"
     update: "Обновить"
+    locale: "Язык"
+    edit: "Редактировать"
   
   register:
     new_user_title: "Регистрация"

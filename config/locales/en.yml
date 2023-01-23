@@ -38,8 +38,10 @@ en:
   settings:
     email: "Your email"
     timezone: "Time zone"
-    currency: "Currency"
+    currency: "Defauly currency"
+    locale: "Locale"
     update: "Update"
+    edit: "Edit"
 
 
   register:
@@ -48,12 +50,12 @@ en:
     password_min_len: "Your password (%{minimum_password_length} characters minimum)"
     password: "Your password"
     password_confirmation: "Your password confirmation"
-    register_btn: "Signup"
-    login_link: "or sign in!"
+    register_btn: "Sign up"
+    login_link: "or log in!"
 
   login:
     login_btn: "Login"
-    register_link: "or signup!"
+    register_link: "or sign up!"
     new_login: "Login information"
     signout: "Sign out"
     remember_me: "Remember me"

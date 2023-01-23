@@ -14,5 +14,5 @@ class User < ApplicationRecord
   validates :password, presence: true,
             confirmation: true, if: :password
   validates :password_confirmation, presence: true, if: :password_confirmation
-  
+
 end

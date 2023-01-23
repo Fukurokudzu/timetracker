@@ -24,8 +24,7 @@
   </div>
 
   <div class="field mb-3">
-  <% #TODO: Add timezone select class %>
-  <%= f.time_zone_select(:timezone) %>
+    <%= f.time_zone_select(:timezone, nil, { default: "Moscow" }, { class: "form-select" }) %>
   </div>
   
   <div class="actions mb-3">

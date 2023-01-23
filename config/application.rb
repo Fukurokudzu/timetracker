@@ -19,7 +19,7 @@ module Timetracker
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
     config.time_zone = "Tashkent"
-    config.i18n.default_locale = :ru
+    config.i18n.default_locale = :en
     # config.logger = Logger.new(STDOUT)
   end
 end

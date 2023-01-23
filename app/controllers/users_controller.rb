@@ -26,7 +26,10 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user.email = (user_params[:email])
+    @user.email = user_params[:email]
+    @user.timezone = user_params[:timezone]
+    @user.locale = user_params[:locale] 
+
     respond_to do |format|
       if @user.save
         format.turbo_stream
@@ -42,7 +45,7 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).
-      permit(:email, :password, :password_confirmation)
+      permit(:email, :password, :password_confirmation, :timezone, :locale)
   end
 
 end
