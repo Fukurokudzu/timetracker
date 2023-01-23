@@ -1,14 +1,14 @@
 <%= turbo_stream_from(task) %>
 
-  <div class="accordion-item" id="<%= dom_id(task) %>">
+  <div class="accordion-item mt-3 border-top" id="<%= dom_id(task) %>">
     <h5 class="accordion-header" id="headingOne">
-      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#<%= task.id %>_item" aria-expanded="true" aria-controls=""<%= task.id %>_item"">
         <b><%= task.title %></b>&nbsp;
         <%= t('tasks.time_spent')%>:&nbsp;<%= task.time_spent %>
       </button>
     </h5>
     
-    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+    <div id="<%= task.id %>_item" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
       <div class="accordion-body">
         <%= button_to(t('sprints.start'), project_task_sprints_path(task.project_id, task),
           method: :post, class: 'btn btn-primary align-middle') %>
@@ -26,7 +26,7 @@
           </ul>
 
           <%= button_to(t('tasks.remove_btn'), project_task_path(task.project_id, task),
-          method: :delete, class: 'btn btn-secondary align-middle  mt-3',
+          method: :delete, class: 'btn btn-secondary align-middle mt-3',
           data: { turbo_method: :delete, turbo_confirm: t('tasks.remove_btn_confirm') }) %>
           
       </div>

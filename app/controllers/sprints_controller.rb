@@ -23,6 +23,7 @@ class SprintsController < ApplicationController
     @sprint = Sprint.find(params[:id])
     @sprint.end = Time.now
     @sprint.duration = get_duration(@sprint)
+    
     respond_to do |format|
       if @sprint.save
         format.turbo_stream
