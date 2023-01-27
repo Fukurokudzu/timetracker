@@ -1,0 +1,4 @@
+<div id="<%= dom_id(task) %>_start">
+  <%= button_to(t('sprints.start'), project_task_sprints_path(task.project_id, task),
+  method: :post, class: 'btn btn-primary align-middle') %>
+</div>

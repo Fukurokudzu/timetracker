@@ -10,3 +10,6 @@
   <%= render(partial: 'tasks/time_spent', locals: { task: @task }) %>
 <% end %>
 
+<%= turbo_stream.replace dom_id(@task) + "_start" do %>
+  <%= render(partial: 'sprints/start_sprint_btn', locals: { task: @task }) %>
+<% end %>

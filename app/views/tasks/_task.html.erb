@@ -10,10 +10,7 @@
     
     <div id="<%= task.id %>_item" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
       <div class="accordion-body">
-        <% #TODO: Hide button when sprint active %>
-        <%= button_to(t('sprints.start'), project_task_sprints_path(task.project_id, task),
-          method: :post, class: 'btn btn-primary align-middle') %>
-
+          <%= render('sprints/start_sprint_btn', task: task)%>
           <ul class="mt-3 list-group" id="<%= dom_id(task) %>_sprints">
 
             <% task.sprints.order(start: :desc).each do |sprint| %>

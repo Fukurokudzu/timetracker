@@ -8,10 +8,7 @@ class Project < ApplicationRecord
 
   validates :title, presence: true
   
-  monetize :salary_per_hour_cents,   
-    numericality: {
-    greater_than_or_equal_to: 0
-  }
+  monetize :salary_per_hour_cents, allow_nil: true
 
   def salary
     amount = project_seconds_spent * self.salary_per_hour_cents / 3600
