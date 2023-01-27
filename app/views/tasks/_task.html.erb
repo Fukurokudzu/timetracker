@@ -4,7 +4,7 @@
     <h5 class="accordion-header" id="headingOne">
       <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#<%= task.id %>_item" aria-expanded="true" aria-controls=""<%= task.id %>_item"">
         <b><%= task.title %></b>&nbsp;
-        <%= render('time_spent', task: task) %>
+        <%= render('tasks/time_spent', task: task) %>
       </button>
     </h5>
     
