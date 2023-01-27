@@ -20,6 +20,7 @@ module Timetracker
     # config.eager_load_paths << Rails.root.join("extras")
     config.time_zone = "Tashkent"
     config.i18n.default_locale = :en
+    config.i18n.available_locales = [:en, :ru]
     # config.logger = Logger.new(STDOUT)
   end
 end

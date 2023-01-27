@@ -1,3 +1,7 @@
 <%= turbo_stream.prepend dom_id(@task) + "_sprints" do %>
   <%= render(partial: 'sprints/new_sprint', locals: { sprint: @sprint, user: @user, task: @task }) %>
 <% end %>
+
+<%= turbo_stream.replace dom_id(@task) + "_start" do %>
+  <%= render(partial: 'sprints/start_sprint_btn_off', locals: { task: @task }) %>
+<% end %>
