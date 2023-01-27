@@ -1,3 +1,12 @@
 <%= turbo_stream.replace dom_id(@sprint) do %>
   <%= render(partial: 'sprints/sprint', locals: { sprint: @sprint, user: @user, task: @task }) %>
 <% end %>
+
+<%= turbo_stream.replace dom_id(@project) +"_stats" do %>
+  <%= render(partial: 'projects/stats', locals: { project: @project }) %>
+<% end %>
+
+<%= turbo_stream.replace dom_id(@task) +"_spent" do %>
+  <%= render(partial: 'tasks/time_spent', locals: { task: @task }) %>
+<% end %>
+

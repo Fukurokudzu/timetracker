@@ -9,6 +9,10 @@
     <%= form.text_field :salary_per_hour, class: "form-control", placeholder: t('projects.salary') %>
   </div>
   <div class="col-auto">
+    <%= form.select(:salary_per_hour_currency, Money::Currency.table, { selected: "usd" }, class: "form-control") %>
+  </div>
+  <div class="col-auto">
     <%= form.submit t('projects.new_pr_btn'), class: "btn btn-primary" %>
   </div>
+
 <% end %>

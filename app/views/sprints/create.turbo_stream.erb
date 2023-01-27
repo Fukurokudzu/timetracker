@@ -1,3 +1,3 @@
-<%= turbo_stream.prepend "sprints" do %>
+<%= turbo_stream.prepend dom_id(@task) + "_sprints" do %>
   <%= render(partial: 'sprints/new_sprint', locals: { sprint: @sprint, user: @user, task: @task }) %>
 <% end %>

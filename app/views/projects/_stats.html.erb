@@ -1,0 +1,10 @@
+<div class="mt-3" id="<%= dom_id(project) %>_stats">
+<%= t('projects.tasks_total') %>:
+<%= project.tasks.count %>
+<%= t('projects.minutes_total') %>:
+<%= project.project_seconds_spent / 60 %>
+<% unless project.salary_per_hour.nil? %>
+  <%= t('projects.salary_total') %>:
+  <%= humanized_money_with_symbol(project.salary) %>
+<% end %>
+</div>

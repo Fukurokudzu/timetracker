@@ -1,6 +1,7 @@
 class SprintsController < ApplicationController
 
   before_action :get_task
+  before_action :get_project
   before_action :get_user
 
   def index
@@ -16,6 +17,7 @@ class SprintsController < ApplicationController
         format.turbo_stream
       end
     end
+
   end
 
   def update
@@ -37,6 +39,10 @@ class SprintsController < ApplicationController
     @task = Task.find(sprint_params[:task_id])
   end
 
+  def get_project
+    @project = Project.find(@task.project_id)
+  end
+
   def get_user
     @user = current_user
   end
@@ -53,4 +59,8 @@ class SprintsController < ApplicationController
   def sprint_params
     params.permit(:start, :end, :duration, :task_id)
   end
+
+  # def update_stats
+  #   @project.render_stats
+  # end
 end

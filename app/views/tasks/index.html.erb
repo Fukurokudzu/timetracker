@@ -1,5 +1,8 @@
 <%= render('bread') %>
-<%= render('projects/project_stats') %>
+
+<%= turbo_stream_from(dom_id(@current_project) + "_stats") %>
+<%= render('projects/stats', project: @current_project) %>
+
 <%= render('new_form') %>
 
 <div class="accordion mt-3" id="<%= @stream_name %>">

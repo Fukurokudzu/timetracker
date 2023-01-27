@@ -42,6 +42,7 @@ class ProjectsController < ApplicationController
   private
 
   def project_params
-    params.permit(:title, :desc, :salary_per_hour)
+    params.permit(:title, :desc, :salary_per_hour, :salary_per_hour_currency)
   end
+
 end

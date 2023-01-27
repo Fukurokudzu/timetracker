@@ -50,6 +50,9 @@ gem "sassc-rails"
 
 gem "devise"
 
+gem 'money'
+gem 'money-rails'
+
 # gem 'bootstrap'
 
 # gem 'jquery-rails'
