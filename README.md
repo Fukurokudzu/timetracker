@@ -7,7 +7,7 @@ Simple web-based time tracker, that could help keep track of time, spent for eac
 - Counts time and cost per project
 - Dynamic page partials with turbo streams
 - I18n for English and Russian
-- Editable profile with timezone selection
+- Editable profile with time zone selection
 
 You can try it [here](http://fukurokudzu.ru:3000)
 
