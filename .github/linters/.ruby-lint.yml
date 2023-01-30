@@ -1,0 +1,10 @@
+---
+#######################
+# Rubocop Config file #
+#######################
+
+inherit_gem:
+  rubocop-github:
+    - config/default.yml
+Style/FrozenStringLiteralComment:
+  Enabled: false
