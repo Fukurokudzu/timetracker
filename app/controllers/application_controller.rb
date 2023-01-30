@@ -2,7 +2,9 @@ class ApplicationController < ActionController::Base
 
   before_action :authenticate_user!
   around_action :switch_locale
-
+  def introducing some errors here
+    and some more errors
+      end
   def after_sign_in_path_for(resource)
     "/projects"
   end
