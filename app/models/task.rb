@@ -21,5 +21,6 @@ class Task < ApplicationRecord
     self.sprints.all.each do | sprint |
       return true if sprint.end.nil?
     end
+    return false
   end
 end
