@@ -10,6 +10,7 @@
     
     <div id="<%= task.id %>_item" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
       <div class="accordion-body">
+          <%= task.task_active? %>
           <%= task.task_active? ? render('sprints/start_sprint_btn_off', task: task) : render('sprints/start_sprint_btn', task: task)  %>
           <ul class="mt-3 list-group" id="<%= dom_id(task) %>_sprints">
 
