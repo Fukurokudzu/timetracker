@@ -7,7 +7,7 @@ class Project < ApplicationRecord
   after_destroy_commit { broadcast_remove }
 
   validates :title, presence: true
-  
+
   monetize :salary_per_hour_cents, allow_nil: true
 
   def salary(project_seconds_spent = 0)
