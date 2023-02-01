@@ -22,5 +22,13 @@ module Timetracker
     config.i18n.default_locale = :en
     config.i18n.available_locales = [:en, :ru]
     # config.logger = Logger.new(STDOUT)
+    config.generators do |g|
+      g.test_framework(
+        :rspec,
+        view_specs: false,
+        helper_specs: false,
+        routing_specs: false,
+      )
+    end
   end
 end
