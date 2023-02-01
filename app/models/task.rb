@@ -15,4 +15,11 @@ class Task < ApplicationRecord
   def stream_name
     "tasks_" + self.project_id.to_s
   end
+
+  def task_active?
+    return false if self.sprints.all.empty?
+    self.sprints.all.each do | sprint |
+      return true if sprint.end.nil?
+    end
+  end
 end
