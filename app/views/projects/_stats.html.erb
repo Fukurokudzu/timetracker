@@ -5,6 +5,6 @@
 <%= project.project_seconds_spent / 60 %>
 <% unless project.salary_per_hour.nil? %>
   <%= t('projects.salary_total') %>:
-  <%= humanized_money_with_symbol(project.salary) %>
+  <%= humanized_money_with_symbol(project.salary(project.project_seconds_spent)) %>
 <% end %>
 </div>
