@@ -85,3 +85,8 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+group :production do
+  # requires postgre postgre-contrib libpq-dev
+  gem "pg"
+end
