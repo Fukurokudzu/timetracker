@@ -1,18 +1,17 @@
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
 
   has_many :projects, dependent: :destroy
 
-  email_regex = /\A[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,7}\z/i
+  email_regex = /@/
 
   validates :email, presence: true,
-            uniqueness: true,
+            uniqueness: { case_sensitive: false },
             format: {with: email_regex}
-  validates :password, presence: true,
-            confirmation: true, if: :password
-  validates :password_confirmation, presence: true, if: :password_confirmation
+            
+  passwordless_with :email
+
+  def self.fetch_resource_for_passwordless(email)
+    find_or_create_by(email:)
+  end
 
 end

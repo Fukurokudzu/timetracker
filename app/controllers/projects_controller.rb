@@ -1,8 +1,12 @@
 class ProjectsController < ApplicationController
 
   def index
-    @projects = current_user.projects.order(created_at: :desc)
-    @stream_name = "projects_" + current_user.id.to_s
+    if current_user
+      @projects = current_user.projects.order(created_at: :desc)
+      @stream_name = "projects_" + current_user.id.to_s
+    else
+      render('sessions#new')
+    end
   end
 
   def create

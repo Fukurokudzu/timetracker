@@ -48,8 +48,6 @@ gem "sassc-rails"
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
-gem "devise"
-
 gem 'money'
 gem 'money-rails'
 
@@ -90,3 +88,5 @@ group :production do
   # requires postgre postgre-contrib libpq-dev
   gem "pg"
 end
+
+gem "passwordless", "~> 0.11.0"

@@ -2,24 +2,28 @@ class UsersController < ApplicationController
 
   before_action :get_user, only: %i[ show edit update destroy ]
 
+  include Passwordless::ControllerHelpers
+
+  def create
+    @user = User.new user_params
+    
+    if @user.save
+      sign_in @user
+      redirect_to @user, flash: { notice: 'Welcome!' }
+    else
+      render :new
+    end
+  end
+  
   def new
     @user = User.new
   end
 
-  def create
-    @user = User.new(user_params)
-    if @user.save
-      render('new')
-    else
-      render('login')
-    end
-
-  end
-
   def show
-    if @user.id != current_user.id
-      redirect_to(root_path)
-    end
+    #REMOVE clean up if works
+    # if @user.id != current_user.id
+    #   redirect_to(root_path)
+    # end
   end
 
   def edit
@@ -47,8 +51,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).
-      permit(:email, :password, :password_confirmation, :timezone, :locale)
+    params.require(:user).permit(:username, :email)
   end
 
 end
