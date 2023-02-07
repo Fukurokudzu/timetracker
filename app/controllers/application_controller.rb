@@ -1,6 +1,5 @@
 class ApplicationController < ActionController::Base
-  #FIXME locale 
-  # around_action :switch_locale
+  around_action :switch_locale
 
   include Passwordless::ControllerHelpers
 
@@ -14,27 +13,27 @@ class ApplicationController < ActionController::Base
 
   def require_user!
     return if current_user
+    save_passwordless_redirect_location!(User)
     #TODO replace error with translation
-    redirect_to root_path, flash: { error: 'You are not worthy!' }
+    redirect_to auth.sign_in_path, flash: { error: 'Enter your email to sign in' }
   end
 
   def after_sign_out_path_for(resource)
     new_user_session_path
   end
 
-  #FIXME locale not working with passwordless
-  # def switch_locale(&action)
+  def switch_locale(&action)
 
-  #   if current_user_locale?
-  #     locale = current_user.locale
-  #   elsif I18n.available_locales.map(&:to_s).include?(params[:locale])
-  #     locale = params[:locale] || I18n.default_locale
-  #   else
-  #     locale = I18n.default_locale
-  #   end
+    if current_user_locale?
+      locale = current_user.locale
+    elsif I18n.available_locales.map(&:to_s).include?(params[:locale])
+      locale = params[:locale] || I18n.default_locale
+    else
+      locale = I18n.default_locale
+    end
     
-  #   I18n.with_locale(locale, &action)
-  # end
+    I18n.with_locale(locale, &action)
+  end
 
   def current_user_locale?
     unless current_user.nil?

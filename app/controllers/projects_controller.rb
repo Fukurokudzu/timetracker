@@ -1,12 +1,14 @@
 class ProjectsController < ApplicationController
 
+  before_action :require_user!
+
   def index
-    if current_user
+    # if current_user
       @projects = current_user.projects.order(created_at: :desc)
       @stream_name = "projects_" + current_user.id.to_s
-    else
-      render('sessions#new')
-    end
+    # else
+    #   render('passwordless/sessions#new')
+    # end
   end
 
   def create

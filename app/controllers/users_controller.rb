@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-
+  
+  before_action :require_user!
   before_action :get_user, only: %i[ show edit update destroy ]
 
   include Passwordless::ControllerHelpers
@@ -30,7 +31,8 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user.email = user_params[:email]
+    #REMOVE clean up here and views
+    # @user.email = user_params[:email]
     @user.timezone = user_params[:timezone]
     @user.locale = user_params[:locale] 
 
@@ -51,7 +53,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:username, :email)
+    params.require(:user).permit(:username, :email, :timezone, :locale)
   end
 
 end
