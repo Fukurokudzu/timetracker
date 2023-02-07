@@ -3,17 +3,18 @@
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field mb-3 mt-3">
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: t('register.email') %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control",
+    value: "demo@demo.com", placeholder: t('register.email') %>
   </div>
 
   <div class="field mb-3 mt-3">
-    <%= f.password_field :password, autocomplete: "current-password",
-      class: "form-control", placeholder: t('register.password') %>
+    <%= f.password_field :password, autocomplete: "123456",
+      class: "form-control", value: "123456", placeholder: t('register.password') %>
   </div>
 
   <% if devise_mapping.rememberable? %>
     <div class="field mb-3 mt-3">
-      <%= f.check_box :remember_me %>
+      <%= f.check_box :remember_me, checked: true %>
       <%= f.label(t('login.remember_me'))%>
     </div>
   <% end %>
