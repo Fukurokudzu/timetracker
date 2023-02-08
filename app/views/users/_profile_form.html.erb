@@ -1,7 +1,6 @@
 <%= form_for(current_user, html: { method: :put }) do |f| %>
-  <div class="field mb-3 mt-3">
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control col-auto",
-    placeholder: current_user.email %>
+  <div class="mb-3 mt-3">
+    <%= f.label(:timezone, current_user.email, class: "form-control col-auto border-0 bg-secondary-subtle") %>
   </div>
   <div class="field mb-3 mt-3">
     <%= f.time_zone_select(:timezone, nil, { default: "current_user.timezone" }, { class: "form-select" }) %>

@@ -26,7 +26,6 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user.email = user_params[:email]
     @user.timezone = user_params[:timezone]
     @user.locale = user_params[:locale] 
 
