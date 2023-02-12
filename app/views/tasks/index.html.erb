@@ -5,7 +5,7 @@
 
 <%= render('new_form') %>
 
-<div class="accordion mt-3" id="<%= @stream_name %>">
+<div class="accordion mt-3 mb-5" id="<%= @stream_name %>">
 <%= turbo_stream_from(@stream_name) %>
 <% @tasks.each do |task| %>
   <%= render(task) %>
