@@ -22,11 +22,10 @@
             <% end %>
             
           </ul>
-
-          <%= button_to(t('tasks.remove_btn'), project_task_path(task.project_id, task),
-          method: :delete, class: 'btn btn-secondary align-middle mt-3',
-          data: { turbo_method: :delete, turbo_confirm: t('tasks.remove_btn_confirm') }) %>
           
+          <%= button_to(t('tasks.remove_btn'), project_task_path(task.project_id, task),
+          method: :delete, class: 'btn btn-secondary btn-sm mt-3',
+          data: { turbo_method: :delete, turbo_confirm: t('tasks.remove_btn_confirm') }) %>
       </div>
     </div>
   </div>

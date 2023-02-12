@@ -1,23 +1,34 @@
 <header class="app">
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <nav class="navbar navbar-expand-sm bg-body-tertiary">
     <div class="container-fluid">
-      <%= link_to(t('app.title'), root_path, class: "navbar-brand h1") %>
-      <% if user_signed_in? %>
-      <div class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <%= link_to(t('projects.projects'), projects_path, class: "nav-link") %>
-        </li>
-        <li class="nav-item">
-          <%= link_to(t('app.profile'), user_path(current_user), class: "nav-link") %>
-        </li>
-        <li class="nav-item">
-          <%= link_to(t('login.signout'), destroy_user_session_path, class: "nav-link", data: { turbo_method: :delete}) %>
-        </li>
-      </ul>
-      </div>
-      <div id="tz_header"><%= current_user.timezone %></div>
+      <%= link_to(t('app.title'), root_path, class: "navbar-brand text-nowrap h3") %>
+      <%= button_tag("", type: "button", class: "navbar-toggler collapsed", data: { "bs-toggle": "collapse", "bs-target": ".multi-collapse"}, aria: { controls: "multiCollapse1 multiCollapse2", expanded: "false"}) do %>
+      <%= content_tag(:span, "", class: "navbar-toggler-icon") %>
       <% end %>
 
+
+      <% if user_signed_in? %>
+      
+      <div class="navbar-collapse multi-collapse ms-3 collapse" id="multiCollapse1">
+        <ul class="navbar-nav">
+          <li class="nav-item text-nowrap">
+            <%= link_to(t('projects.projects'), projects_path, class: "nav-link") %>
+          </li>
+          <li class="nav-item text-nowrap">
+            <%= link_to(t('app.profile'), user_path(current_user), class: "nav-link") %>
+          </li>
+          <li class="nav-item text-nowrap">
+            <%= link_to(t('login.signout'), destroy_user_session_path, class: "nav-link", data: { turbo_method: :delete}) %>
+          </li>
+        </ul>
+      </div>
+      
+      <div class="d-flex multi-collapse d-none d-md-block collapse" style="color: rgba(var(--bs-emphasis-color-rgb), 0.65);">
+        <%= t('settings.timezone') %> :&nbsp; <%= current_user.timezone %>
+      </div>
     </div>
+  
+      <% end %>
+
   </nav>
 </header>

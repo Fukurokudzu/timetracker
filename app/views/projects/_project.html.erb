@@ -12,7 +12,7 @@
   <% end %>
   </div>
   <div class="col">
-    <%= button_to(t('projects.remove_btn'), project_path(project), method: :delete, class: 'btn btn-secondary align-middle', data: { turbo_method: :delete, turbo_confirm: t('projects.remove_btn_confirm') }) %>
+    <%= button_to(t('projects.remove_btn'), project_path(project), method: :delete, class: 'btn btn-secondary btn-sm float-end', style: 'width: 80px', data: { turbo_method: :delete, turbo_confirm: t('projects.remove_btn_confirm') }) %>
   </div>
 </div>
 
