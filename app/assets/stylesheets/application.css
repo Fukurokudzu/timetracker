@@ -14,18 +14,20 @@
  *= require_self
  */
 
- a {
+a {
   text-decoration: none !important;
   }
 
-@keyframes fadeOut {
-  0% {opacity: 1;}
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+    }
   100% {
     opacity: 0;
     display: none;
-  } 
- } 
+    }
+}
 
-.fadeOut {
-  animation: fadeOut ease .5s forwards;
+.fade-out {
+  animation: fade-out ease .5s forwards;
 }
