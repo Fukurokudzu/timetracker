@@ -17,3 +17,15 @@
  a {
   text-decoration: none !important;
   }
+
+@keyframes fadeOut {
+  0% {opacity: 1;}
+  100% {
+    opacity: 0;
+    display: none;
+  } 
+ } 
+
+.fadeOut {
+  animation: fadeOut ease .5s forwards;
+}

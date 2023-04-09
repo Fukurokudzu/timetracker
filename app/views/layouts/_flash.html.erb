@@ -1,6 +1,6 @@
 <div class="flash-messages">
   <% flash.each do |type, message| %>
-    <div class="flash-message alert alert-success mt-3 alert-dismissible show fade">
+    <div class="flash-message alert alert-success mt-3 alert-dismissible" data-controller="flash">
       <%= message %><button type="button" class="btn-close" aria-label="Close" data-bs-dismiss="alert"></button>
     </div>
   <% end %>
