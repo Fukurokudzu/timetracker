@@ -3,10 +3,13 @@ import { Controller } from '@hotwired/stimulus'
 // Connects to data-controller="flash"
 export default class extends Controller {
   connect() {
-    // console.log("Hello, Stimulus!", this.element)
+    const toastTrigger = document.getElementById('liveToastBtn')
+    const toastLiveExample = document.getElementById('liveToast')
+    const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
+    toastBootstrap.show()
     setInterval(() => {
       this.element.classList.add('fade-out')
       setInterval(() => { this.element.remove() }, 500)
-    }, 3000)
+    }, 5000)
   }
 }
