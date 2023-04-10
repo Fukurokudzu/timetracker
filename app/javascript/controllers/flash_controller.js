@@ -2,12 +2,11 @@ import { Controller } from '@hotwired/stimulus'
 
 // Connects to data-controller="flash"
 export default class extends Controller {
-  connect() {
-    const toastTrigger = document.getElementById('liveToastBtn')
+  connect () {
     const toastLiveExample = document.getElementById('liveToast')
     const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
     toastBootstrap.show()
-    setInterval(() => {
+    setInterval( () => {
       this.element.classList.add('fade-out')
       setInterval(() => { this.element.remove() }, 500)
     }, 5000)
