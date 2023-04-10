@@ -1,6 +1,7 @@
 import { Controller } from '@hotwired/stimulus'
 
 // Connects to data-controller="flash"
+/*global bootstrap*/
 export default class extends Controller {
   connect () {
     const toastLiveExample = document.getElementById('liveToast')
