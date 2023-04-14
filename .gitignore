@@ -35,3 +35,5 @@
 /config/master.key
 .vscode/sftp.json
 config/database.yml
+
+/config/credentials/production.key

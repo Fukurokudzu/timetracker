@@ -15,7 +15,7 @@ export default class extends Controller {
     }
 
     const text = this.element.innerHTML
-    let seconds = (this.data.get('current-ts') - this.data.get('start-at'))
+    let seconds = (this.data.get('current-ts') - this.data.get('start-at') + 1)
 
     setInterval(() => {
       this.element.innerHTML = text + '+ ' + formatTime(seconds++)

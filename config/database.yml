@@ -25,5 +25,5 @@ production:
   encoding: unicode
   database: timetracker_production
   host: 127.0.0.1
-  username: <%= ENV['PG_USERNAME'] %>
-  password: <%= ENV['PG_PASSWORD'] %>
+  username: <%= Rails.application.credentials.postgresql[:db_username] %>
+  password: <%= Rails.application.credentials.postgresql[:db_password] %>
