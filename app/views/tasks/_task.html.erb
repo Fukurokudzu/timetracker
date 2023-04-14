@@ -14,11 +14,7 @@
           <ul class="mt-3 list-group" id="<%= dom_id(task) %>_sprints">
 
             <% task.sprints.order(start: :desc).each do |sprint| %>
-              <% if sprint.end.nil? %>
-                <%= render('sprints/new_sprint', sprint: sprint, user: @user, task: task) %>
-              <% else %>
-                <%= render('sprints/sprint', sprint: sprint, user: @user) %>
-              <% end %>
+                <%= render('sprints/sprint', sprint: sprint, user: @user, task: task) %>
             <% end %>
             
           </ul>

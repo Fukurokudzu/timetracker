@@ -5,21 +5,6 @@ method: :post, class: 'btn btn-primary align-middle') %>
 <%= turbo_stream_from(sprints) %>
 <% sprints.each do |sprint| %>
   <%= turbo_stream_from(sprint) %>
-  <li class="list-group-item" id="<%= dom_id(sprint)%>">
-    <% unless sprint.duration.nil? %>
-      <%= distance_of_time_in_words(sprint.duration) %>
-    <% end %>
-
-    <div class="float-end">
-    <%= l(sprint.start.in_time_zone(user.timezone), format: :short) %>&nbsp;
-    <% if sprint.end.nil? %>
-      <%= button_to(t('sprints.stop'), project_task_sprint_path(task.project_id, task, sprint.id),
-      method: :put, class: 'btn btn-secondary align-middle') %>
-    <% else %>
-      - &nbsp;
-      <%= l(sprint.end.in_time_zone(user.timezone), format: :short) %>
-    <% end %>
-    </div>
-  </li>
+    <%= render 'sprint', locals: { sprint: @sprint, user: @user, task: @task } %>
 <% end%>
 </ul>

@@ -1,15 +1,28 @@
-<li class="list-group-item" id="<%= dom_id(sprint)%>">
-  <% unless sprint.duration.nil? %>
-    <%= distance_of_time_in_words(sprint.duration) %>
-  <% end %>
+<% sprint.end.nil? ? li_class = "bg-primary-subtle" : li_class = "" %>
 
-  <div class="float-end">
-  <%= l(sprint.start.in_time_zone(user.timezone), format: :short) %>&nbsp;
-  <% if sprint.end.nil? %>
-    <%= button_to(t('sprints.stop'), project_task_sprint_path(task.project_id, task, sprint.id),
-    method: :put, class: 'btn btn-secondary align-middle') %>
-  <% else %>
-    - &nbsp;
+<li class="list-group-item <%= li_class %>" id="<%= dom_id(sprint)%>">
+
+  <div class="float-start">
+    <% unless sprint.duration.nil? %>
+      <%= distance_of_time_in_words(sprint.duration) %>
+    <% end %>
+
+    <% if sprint.end.nil? %>
+      <span class="active" data-controller="timer"
+      data-timer-start-at="<%= sprint.start.to_time.to_i %>"
+      data-timer-current-ts="<%= Time.now.to_i %>"
+      >
+        <%= t('sprints.started_at') %>&nbsp;<%= l(sprint.start.in_time_zone(user.timezone), format: :short) %>
+      </span>
+    <% end %>
+  
+    </div>
+    <div class="float-end">
+    <% if sprint.end.nil? %>
+      <%= button_to(t('sprints.stop'), project_task_sprint_path(task.project_id, task, sprint.id),
+      method: :put, class: 'btn btn-light align-middle') %>
+    <% else %>
+      <%= l(sprint.start.in_time_zone(user.timezone), format: :short) %> - &nbsp;
     <%= l(sprint.end.in_time_zone(user.timezone), format: :short) %>
   <% end %>
   </div>
