@@ -4,7 +4,7 @@ import { Controller } from '@hotwired/stimulus'
 /* global bootstrap */
 export default class extends Controller {
   connect () {
-    const toastLiveExample = document.getElementById('liveToast')
+    const toastLiveExample = document.getElementById('live-toast')
     const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
     toastBootstrap.show()
     setInterval(() => {

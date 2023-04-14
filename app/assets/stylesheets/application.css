@@ -18,9 +18,9 @@ a {
   text-decoration: none !important;
 }
 
-#liveToast {
+#live-toast {
   border: 0;
-  --bs-toast-bg: rgba(var(--bs-body-bg-rgb), 1);
+  background: white;
 }
 
 @keyframes fade-out {
@@ -37,4 +37,3 @@ a {
 .fade-out {
   animation: fade-out ease 0.5s forwards;
 }
-
