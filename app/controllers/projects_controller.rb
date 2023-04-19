@@ -35,7 +35,7 @@ class ProjectsController < ApplicationController
   def stream_name
     @project.stream_name = "projects_" + current_user.id
   end
-  
+
   private
 
   def project_params
