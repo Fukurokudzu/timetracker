@@ -9,7 +9,7 @@ class ProjectsController < ApplicationController
     @project = Project.new(project_params)
 
     @project.user_id = current_user.id
-    
+
     if @project.save
       show_flash(t('flash.notice.projects.created', project_title: @project.title))
     else

@@ -27,7 +27,7 @@ class ApplicationController < ActionController::Base
     else
       locale = I18n.default_locale
     end
-    
+
     I18n.with_locale(locale, &action)
   end
 
@@ -40,5 +40,5 @@ class ApplicationController < ActionController::Base
   # def default_url_options
   #   { locale: I18n.locale }
   # end
-  
+
 end
