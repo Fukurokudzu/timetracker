@@ -11,24 +11,21 @@ class ProjectsController < ApplicationController
     @project.user_id = current_user.id
     
     if @project.save
-      flash.now[:success] = t('flash.notice.projects.created', project_title: @project.title)
-      render turbo_stream: turbo_stream.update("flash", partial: "layouts/flash")
+      show_flash(t('flash.notice.projects.created', project_title: @project.title))
     else
-      flash.now[:error] = t('flash.alert.projects.title_empty', project_title: @project.title)
-      render turbo_stream: turbo_stream.update("flash", partial: "layouts/flash")
+      show_flash(:error, t('flash.alert.projects.title_empty', project_title: @project.title))
     end
   end
 
   def destroy
     #TODO: check removal of foreign users tasks
 
-    project = Project.find(params[:id])
-    if project.user_id = current_user.id
-      project.destroy
-      render json: { success: project.save, id: project.id }
+    @project = Project.find(params[:id])
+    if @project.user_id = current_user.id
+      @project.destroy
+      show_flash(t('flash.notice.projects.removed', project_title: @project.title))
     else
-      render json: { error: t('flash.alert.projects.destroy_error'), id: project.id }
-      # flash.alert = t('flash.alert.projects.destroy_error')
+      show_flash(:error, t('flash.alert.projects.destroy_error', project_title: @project.title))
     end
   end
 
@@ -38,7 +35,7 @@ class ProjectsController < ApplicationController
   def stream_name
     @project.stream_name = "projects_" + current_user.id
   end
-
+  
   private
 
   def project_params

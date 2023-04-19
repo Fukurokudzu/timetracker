@@ -4,12 +4,8 @@ import { Controller } from '@hotwired/stimulus'
 /* global bootstrap */
 export default class extends Controller {
   connect () {
-    const toastLiveExample = document.getElementById('live-toast')
-    const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
+    const toast = document.getElementById('toast')
+    const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toast)
     toastBootstrap.show()
-    setInterval(() => {
-      this.element.classList.add('fade-out')
-      setInterval(() => { this.element.remove() }, 500)
-    }, 5000)
   }
 }

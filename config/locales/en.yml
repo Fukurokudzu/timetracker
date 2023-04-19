@@ -93,11 +93,11 @@ en:
         destroy_error: "Wrond project ID"
         title_empty: "Please enter project title"
       tasks:
+        destroy_error: "Coudln't remove %{task_title}"
         title_empty: "Please enter task title"
       settings:
         email_empty: "'Email' field can't be empty"
         error: "'Email' field not set or this address is already taken"
-
 
     notice:
       login: "Welcome!"
@@ -106,8 +106,8 @@ en:
         removed: "Project has been removed"
         empty: "Create new project first"
       tasks:
-        created: "New task created"
-        removed: "Task removed"
+        created: "Task %{task_title} created"
+        removed: "Task %{task_title} removed"
   
   breadcrumbs:
     home: Home

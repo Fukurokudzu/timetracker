@@ -60,6 +60,7 @@ ru:
         destroy_error: "Неправильный ID проекта"
         title_empty: "Заполните поле 'Название проекта'"
       tasks:
+        destroy_error: "Ошибка удаления задачи %{task_title}"
         title_empty: "Заполните поле 'Название задачи'"
       settings:
         email_empty: "Поле 'Электронная почта' не может быть пустым"
@@ -72,8 +73,8 @@ ru:
         removed: "Проект удалён"
         empty: "Создайте новый проект"
       tasks:
-        created: "Задача создана"
-        removed: "Задача удалена"
+        created: "Задача %{task_title} создана"
+        destroyed: "Задача %{task_title} удалена"
         
   breadcrumbs:
     home: Главная

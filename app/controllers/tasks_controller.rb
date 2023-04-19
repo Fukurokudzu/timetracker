@@ -18,23 +18,21 @@ class TasksController < ApplicationController
 
     if project_id_owner?(task_params[:project_id])
       if @task.save
-        flash.now[:success] = t('flash.notice.tasks.created', task_title: @task.title)
-        render turbo_stream: turbo_stream.update("flash", partial: "layouts/flash")
+        show_flash(t('flash.notice.tasks.created', task_title: @task.title))
       else
-        flash.now[:error] = t('flash.alert.tasks.title_empty', task_title: @task.title)
-        render turbo_stream: turbo_stream.update("flash", partial: "layouts/flash")
+        show_flash(:error, t('flash.alert.tasks.title_empty', task_title: @task.title))
       end
     end
   end
 
   def destroy
     #TODO: check removal of foreign users tasks
-    task = Task.find(params[:id])
+    @task = Task.find(params[:id])
     if project_id_owner?(task_params[:project_id])
-      task.destroy
-      render json: { success: task.save, id: task.id }
+      @task.destroy
+      show_flash(t('flash.notice.tasks.removed', task_title: @task.title))
     else
-      render json: { error: t('flash.alert.tasks.destroy_error'), id: task.id }
+      show_flash(:error, t('flash.alert.tasks.destroy_error', task_title: @task.title))
     end
   end
 
