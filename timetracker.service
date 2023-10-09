@@ -1,0 +1,17 @@
+# This is a systemd service file for Timetracker. This file goes to /etc/systemd/system/
+# then run `systemctl daemon-reload` and `systemctl enable timetracker.service`
+
+[Unit]
+Description=Timetracker puma daemon
+After=network.target
+
+[Service]
+Type=simple
+User=fukurokudzu
+Environment=RAILS_ENV=production
+ExecStart=/home/fukurokudzu/.asdf/shims/bundle exec rails server -b 0.0.0.0 -e production
+WorkingDirectory=/home/fukurokudzu/ruby/timetracker
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
